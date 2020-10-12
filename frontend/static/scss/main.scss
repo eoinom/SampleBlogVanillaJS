@@ -1,0 +1,32 @@
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+$card-height: 100%;
+
+.homeBackground {
+  height: 100vh;
+  background-image: url(../images/mountains.jpg);  
+  background-size: contain;
+  overflow: auto;
+}
+.postBackground {
+  height: 100vh;
+  background-image: url(../images/blue-landscape.jpg);
+  overflow: auto;
+}
+.homeContainer {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #ddd;
+}
+.postContainer {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: lightcyan;
+}
+.replyText {
+  color: crimson;
+  cursor: pointer;
+  text-transform: uppercase;  
+}
