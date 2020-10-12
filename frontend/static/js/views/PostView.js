@@ -1,5 +1,6 @@
 import AbstractView from "./AbstractView.js";
 import PostComments from "../components/PostComments.js";
+import { API_BASE_URL } from "../index.js"
 
 export default class PostView extends AbstractView {
   constructor(params) {
@@ -8,7 +9,7 @@ export default class PostView extends AbstractView {
   }
 
   async getPost(id) {
-    let post = await fetch(`http://localhost:9001/posts/${id}`).then(function (response) {
+    let post = await fetch(`${API_BASE_URL}/posts/${id}`).then(function (response) {
       return response.json();
     }).catch(function (error) {
       console.error('Error in retrieving post with id: ' + id);

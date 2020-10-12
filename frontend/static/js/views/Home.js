@@ -1,5 +1,6 @@
 import AbstractView from "./AbstractView.js";
 import BlogCard from "../components/BlogCard.js";
+import { API_BASE_URL } from "../index.js"
 
 export default class extends AbstractView {
   constructor(params) {
@@ -8,7 +9,7 @@ export default class extends AbstractView {
   }
 
   async getPosts() {
-    let posts = await fetch('http://localhost:9001/posts').then(function (response) {
+    let posts = await fetch(`${API_BASE_URL}/posts`).then(function (response) {
       return response.json();
     }).catch(function (error) {
       console.error('Error in retrieving posts');

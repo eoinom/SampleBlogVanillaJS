@@ -1,8 +1,10 @@
 import Home from "./views/Home.js";
 import PostView from "./views/PostView.js";
 
+export const API_BASE_URL = 'http://localhost:9001';
+
 async function getPosts() {
-  let posts = await fetch('http://localhost:9001/posts').then(function (response) {
+  let posts = await fetch(`${API_BASE_URL}/posts`).then(function (response) {
     return response.json();
   });
   return posts;
@@ -67,7 +69,6 @@ window.addEventListener("popstate", router);
 document.addEventListener("DOMContentLoaded", () => {
   document.body.addEventListener("click", e => {
     if (e.target.matches("[data-link]")) {
-      console.log('in DOMContentLoaded, data-link')
       e.preventDefault();
       navigateTo(e.target.href);
     }
