@@ -28,12 +28,16 @@ export default class extends AbstractView {
     <div class="homeBackground">
       <div class="container">
         <div class="homeContainer pb-4">
-          <img src="static/images/logo-with-text.png" id="logo" class="d-block mx-auto mt-1 mb-4" width="300">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc efficitur mauris leo, sed finibus tortor facilisis vitae. Nunc tincidunt at tortor vitae porta. Vivamus luctus ut dui vitae consequat.
-          </p>
+          <header>
+            <img src="static/images/logo-with-text.png" id="logo" class="d-block mx-auto mt-1 mb-4" width="300" alt="Site logo">
+          </header>
 
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <main>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc efficitur mauris leo, sed finibus tortor facilisis vitae. Nunc tincidunt at tortor vitae porta. Vivamus luctus ut dui vitae consequat.
+            </p>
+
+            <section class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" aria-label="blog posts">
     `;
     
     // sort by date (newest first)
@@ -50,7 +54,7 @@ export default class extends AbstractView {
           <blog-card id="${ post.id }">
             <div slot="title">${ post.title }</div>
             <div slot="author">
-              <img src="${ AvatarSrc(post.author) }" class="avatar mr-1">
+              <img src="${ AvatarSrc(post.author) }" class="avatar mr-1" alt="Author avatar">
               By ${ post.author }
             </div>
             <div slot="date">${ FormatDate(post.publish_date, dateLocale, dateOptions) }</div>
@@ -60,7 +64,7 @@ export default class extends AbstractView {
         </div>`
     });
 
-    return html += '</div></div></div></div>';
+    return html += '</section></main></div></div></div>';
   }
 }
 
