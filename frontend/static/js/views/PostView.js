@@ -7,7 +7,6 @@ import AvatarSrc from "../functions/AvatarSrc.js"
 export default class PostView extends AbstractView {
   constructor(params) {
     super(params);
-    this.setTitle("Viewing Post");
   }
 
   async getPost(id) {
@@ -23,6 +22,7 @@ export default class PostView extends AbstractView {
   async getHtml() {
     const post = await this.getPost(this.params.id);
     const dateString = FormatDate(post.publish_date);
+    this.setTitle(`${ post.title } | Sample Blog`);
     
     return `
       <div class="postBackground">
