@@ -22,7 +22,7 @@ export default class PostComments extends HTMLElement {
     return comments
   }
 
-  async nestComments(comments) {
+  nestComments(comments) {
     let rootComments = comments.filter(comment => {
       return !comment.parent_id;
     });
@@ -66,7 +66,7 @@ export default class PostComments extends HTMLElement {
       </form>`
   }
 
-  async getNestedCommentsHtml(comments) {
+  getNestedCommentsHtml(comments) {
     let html = '';
     comments.forEach(comment => {
       html += `
@@ -111,7 +111,7 @@ export default class PostComments extends HTMLElement {
     return html;
   }
 
-  async onCommentSubmit(parentId) {
+  onCommentSubmit(parentId) {
     const form = this.shadow.querySelector(`#addCommentForm_${parentId}`);
     const elements = form.elements;
     let data = {};
@@ -141,7 +141,7 @@ export default class PostComments extends HTMLElement {
     });
   }
 
-  async showCommentReplyForm(replyId) {
+  showCommentReplyForm(replyId) {
     this.shadow.querySelector(`#reply_${ replyId }`).innerHTML = this.formHtml(replyId);
     this.shadow.querySelector(`#submitBtn_${ replyId }`).addEventListener("click", e => {
       e.preventDefault();
@@ -169,8 +169,8 @@ export default class PostComments extends HTMLElement {
 
   async render() {
     const comments = await this.getComments(this.postID);
-    const nestedComments = await this.nestComments(comments);
-    const commentsHtml = await this.getNestedCommentsHtml(nestedComments);
+    const nestedComments = this.nestComments(comments);
+    const commentsHtml = this.getNestedCommentsHtml(nestedComments);
 
     let numCommentsText = `${ comments.length }`;
     numCommentsText += comments.length == 1 ? ' Comment' : ' Comments'
