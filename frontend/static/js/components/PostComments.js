@@ -88,7 +88,6 @@ export default class PostComments extends HTMLElement {
       </div>`;
 
       comment.replies.forEach(reply => {
-        const userSlug = reply.user.replace(/\s/g, '-');
         html += `
         <div class="row row-cols-auto ml-5 mb-4" style="align-items:center">
           <div class="col">
