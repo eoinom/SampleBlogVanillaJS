@@ -3,14 +3,14 @@ function getTemplate(id) {
   return `  
   <link rel="stylesheet" href="/static/css/main.css">
 
-  <div class="card mx-auto" style="width: 18rem;">
+  <div class="card mx-auto" style="width: 18rem">
     <img src="https://picsum.photos/id/${ imgId }/300/200" class="card-img-top" alt="random image">
-    <div class="card-body">
+    <div class="card-body d-flex flex-column">
       <h5 class="card-title"><slot name="title" /></h5>
       <h6><slot name="author" /></h6>
       <small><slot name="date" /></small>
       <p class="card-text"><slot name="description" /></p>
-      <div><slot name="link" /></div>
+      <div class="mt-auto"><slot name="link" /></div>
     </div>
   </div>
 `;

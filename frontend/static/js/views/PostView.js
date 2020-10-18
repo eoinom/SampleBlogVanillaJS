@@ -29,21 +29,21 @@ export default class PostView extends AbstractView {
         <div class="container">
           <div class="postContainer">
             <a href="/" class="pb-3" title="Back to home page">
-              <img src="../static/images/logo-with-text.png" class="d-block mx-auto my-2" width="200">
+              <img src="../static/images/logo-with-text.png" id="logo" class="d-block mx-auto my-2" width="200">
             </a>
-            <h1>${ post.title }</h1>
+            <h1 class="py-2">${ post.title }</h1>
 
-            <div class="row row-cols-auto mb-4" style="align-items:center">
-              <div class="col">
+            <div class="row row-cols-auto mb-2" style="align-items:center">
+              <div class="col py-2">
                 <img src="${AvatarSrc(post.author)}" style="border-radius:50%" class="mr-1">
                 <span>By ${ post.author }</span>
               </div>
 
-              <div class="col">
+              <div class="col py-2">
                 <svg width="1em" height="30px" viewBox="0 0 16 16" class="bi bi-calendar" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                 </svg>
-                <span>${ dateString }</span>
+                <span class="my-2">${ dateString }</span>
               </div>
             </div>
 

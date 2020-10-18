@@ -80,7 +80,7 @@ export default class PostComments extends HTMLElement {
         <div class="col">
           <img src="${AvatarSrc(comment.user)}" style="border-radius:50%">
         </div>
-        <div class="col">
+        <div class="col-10">
           <span class="comment__author">
             ${ comment.user }
             <span class="comment__date">${ ElapsedDateText(new Date(comment.date)) }</span>
@@ -89,8 +89,8 @@ export default class PostComments extends HTMLElement {
           <div class="replyText" id="comment_${ comment.id }">Reply</div>
         </div>
       </div>
-      <div class="row" style="margin-left:53px">
-        <div id="reply_${ comment.id }"></div>
+      <div class="row ml-0 ml-sm-5 pl-md-3">
+        <div id="reply_${ comment.id }" class="pl-0"></div>
       </div>`;
 
       comment.replies.forEach(reply => {
@@ -99,7 +99,7 @@ export default class PostComments extends HTMLElement {
           <div class="col">
             <img src="${AvatarSrc(reply.user)}" style="border-radius:50%">
           </div>
-          <div class="col">
+          <div class="col-10">
             <span class="comment__author">
               ${ reply.user }
               <span class="comment__date">${ ElapsedDateText(new Date(reply.date)) }</span>
@@ -108,8 +108,8 @@ export default class PostComments extends HTMLElement {
             <div class="replyText" id="comment_${ reply.id }">Reply</div>            
           </div>
         </div>
-        <div class="row" style="margin-left:110px">
-          <div id="reply_${ reply.id }"></div>
+        <div class="row ml-5 pl-md-5">
+          <div id="reply_${ reply.id }" class="mx-md-1 px-md-4"></div>
         </div>`;
       });
       html += '<hr>'

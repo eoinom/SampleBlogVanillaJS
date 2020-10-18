@@ -7,7 +7,7 @@ import AvatarSrc from "../functions/AvatarSrc.js"
 export default class extends AbstractView {
   constructor(params) {
     super(params);
-    this.setTitle("My Blog");
+    this.setTitle("Sample Blog");
   }
 
   async getPosts() {
@@ -27,8 +27,8 @@ export default class extends AbstractView {
     let html = `
     <div class="homeBackground">
       <div class="container">
-        <div class="homeContainer">
-          <img src="static/images/logo-with-text.png" class="d-block mx-auto mt-1 mb-4" width="300">
+        <div class="homeContainer pb-4">
+          <img src="static/images/logo-with-text.png" id="logo" class="d-block mx-auto mt-1 mb-4" width="300">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc efficitur mauris leo, sed finibus tortor facilisis vitae. Nunc tincidunt at tortor vitae porta. Vivamus luctus ut dui vitae consequat.
           </p>
@@ -47,7 +47,7 @@ export default class extends AbstractView {
     posts.forEach(post => {
       html += `
         <div class="col">
-          <blog-card id="${ post.id }" class="h-100">
+          <blog-card id="${ post.id }">
             <div slot="title">${ post.title }</div>
             <div slot="author">
               <img src="${AvatarSrc(post.author)}" style="border-radius:50%" class="mr-1">

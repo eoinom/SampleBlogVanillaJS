@@ -1,16 +1,17 @@
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+$card-height: 100%; // https://v5.getbootstrap.com/docs/5.0/components/card/
 
-$card-height: 100%;
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
 
 .homeBackground {
   height: 100vh;
-  background-image: url(../images/mountains.jpg);  
-  background-size: contain;
+  background-image: url(../images/mountains.jpg); 
+  background-size: cover;
   overflow: auto;
 }
 .postBackground {
   height: 100vh;
   background-image: url(../images/blue-landscape.jpg);
+  background-size: cover;
   overflow: auto;
 }
 .homeContainer {
@@ -18,6 +19,10 @@ $card-height: 100%;
   padding: 1rem;
   border-radius: 12px;
   background-color: #ddd;
+}
+#logo {
+  max-width: 40%;
+  min-width: 200px;
 }
 .postContainer {
   margin-top: 1rem;
@@ -29,4 +34,8 @@ $card-height: 100%;
   color: crimson;
   cursor: pointer;
   text-transform: uppercase;  
+}
+
+.card {
+  max-width: fit-content;
 }
