@@ -7,7 +7,8 @@ function getTemplate(id) {
     <img src="https://picsum.photos/id/${ imgId }/300/200" class="card-img-top" alt="random image">
     <div class="card-body">
       <h5 class="card-title"><slot name="title" /></h5>
-      <span><slot name="date" /></span>
+      <h6><slot name="author" /></h6>
+      <small><slot name="date" /></small>
       <p class="card-text"><slot name="description" /></p>
       <div><slot name="link" /></div>
     </div>

@@ -42,12 +42,15 @@ export default class extends AbstractView {
 
     const dateLocale = 'en-GB';
     const dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
-
+    
     posts.forEach(post => {
       html += `
         <div class="col">
           <blog-card id="${ post.id }" class="h-100">
             <div slot="title">${ post.title }</div>
+            <div slot="author">
+              By ${ post.author }
+            </div>
             <div slot="date">${ FormatDate(post.publish_date, dateLocale, dateOptions) }</div>
             <div slot="description">${ post.description }</div>
             <a href="posts/${ post.slug }" slot="link" class="btn btn-primary">Read more</a>
