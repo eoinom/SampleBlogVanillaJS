@@ -28,7 +28,9 @@ export default class PostView extends AbstractView {
       <div class="postBackground">
         <div class="container">
           <div class="postContainer">
-          <a href="/" class="pb-3">Home</a>
+            <a href="/" class="pb-3" title="Back to home page">
+              <img src="../static/images/logo-with-text.png" class="d-block mx-auto my-2" width="200">
+            </a>
             <h1>${ post.title }</h1>
 
             <div class="row row-cols-auto mb-4" style="align-items:center">

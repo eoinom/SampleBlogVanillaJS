@@ -28,7 +28,7 @@ export default class extends AbstractView {
     <div class="homeBackground">
       <div class="container">
         <div class="homeContainer">
-          <h1>Welcome to my blog</h1>
+          <img src="static/images/logo-with-text.png" class="d-block mx-auto mt-1 mb-4" width="300">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc efficitur mauris leo, sed finibus tortor facilisis vitae. Nunc tincidunt at tortor vitae porta. Vivamus luctus ut dui vitae consequat.
           </p>
