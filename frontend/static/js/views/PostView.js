@@ -2,6 +2,7 @@ import AbstractView from "./AbstractView.js";
 import PostComments from "../components/PostComments.js";
 import { API_BASE_URL } from "../index.js"
 import FormatDate from "../functions/FormatDate.js"
+import AvatarSrc from "../functions/AvatarSrc.js"
 
 export default class PostView extends AbstractView {
   constructor(params) {
@@ -20,8 +21,7 @@ export default class PostView extends AbstractView {
   }
 
   async getHtml() {
-    const post = await this.getPost(this.params.id);    
-    const authorSlug = post.author.replace(/\s/g, '-');
+    const post = await this.getPost(this.params.id);
     const dateString = FormatDate(post.publish_date);
     
     return `
@@ -33,7 +33,7 @@ export default class PostView extends AbstractView {
 
             <div class="row row-cols-auto mb-4" style="align-items:center">
               <div class="col">
-                <img src="https://api.adorable.io/avatars/30/${authorSlug}.png" style="border-radius:50%">
+                <img src="${AvatarSrc(post.author)}" style="border-radius:50%" class="mr-1">
                 <span>By ${ post.author }</span>
               </div>
 

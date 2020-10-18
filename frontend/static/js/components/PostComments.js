@@ -1,5 +1,6 @@
 import { API_BASE_URL } from "../index.js"
 import ElapsedDateText from "../functions/ElapsedDateText.js"
+import AvatarSrc from "../functions/AvatarSrc.js"
 
 export default class PostComments extends HTMLElement {
   constructor() {
@@ -68,11 +69,10 @@ export default class PostComments extends HTMLElement {
   async getNestedCommentsHtml(comments) {
     let html = '';
     comments.forEach(comment => {
-      const userSlug = comment.user.replace(/\s/g, '-');
       html += `
       <div class="row row-cols-auto mb-4" style="align-items:center">
         <div class="col">
-          <img src="https://api.adorable.io/avatars/20/${userSlug}.png" style="border-radius:50%">
+          <img src="${AvatarSrc(comment.user)}" style="border-radius:50%">
         </div>
         <div class="col">
           <span class="comment__author">
@@ -92,7 +92,7 @@ export default class PostComments extends HTMLElement {
         html += `
         <div class="row row-cols-auto ml-5 mb-4" style="align-items:center">
           <div class="col">
-            <img src="https://api.adorable.io/avatars/20/${userSlug}.png" style="border-radius:50%">
+            <img src="${AvatarSrc(reply.user)}" style="border-radius:50%">
           </div>
           <div class="col">
             <span class="comment__author">

@@ -2,6 +2,7 @@ import AbstractView from "./AbstractView.js";
 import BlogCard from "../components/BlogCard.js";
 import { API_BASE_URL } from "../index.js"
 import FormatDate from "../functions/FormatDate.js"
+import AvatarSrc from "../functions/AvatarSrc.js"
 
 export default class extends AbstractView {
   constructor(params) {
@@ -49,6 +50,7 @@ export default class extends AbstractView {
           <blog-card id="${ post.id }" class="h-100">
             <div slot="title">${ post.title }</div>
             <div slot="author">
+              <img src="${AvatarSrc(post.author)}" style="border-radius:50%" class="mr-1">
               By ${ post.author }
             </div>
             <div slot="date">${ FormatDate(post.publish_date, dateLocale, dateOptions) }</div>
