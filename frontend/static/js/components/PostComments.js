@@ -51,17 +51,23 @@ export default class PostComments extends HTMLElement {
 
   formHtml(parentId) {
     return `
-      <form name="addComment" id="addCommentForm_${ parentId }" action="" method="POST" class="mb-2">
+      <form name="addComment" id="addCommentForm_${ parentId }" action="" method="POST" class="needs-validation mb-2" novalidate>
         <div class="mb-3">
           <label for="addCommentName" class="form-label">Name</label>
-          <input type="text" class="form-control" id="addCommentName" name="user">
+          <input type="text" class="form-control" id="addCommentName" name="user" required>
+          <div class="invalid-feedback">
+            Please provide your name
+          </div>
         </div>
         <div class="mb-3">
           <label for="addCommentTextarea" class="form-label">Submit a Comment</label>
-          <textarea class="form-control" id="addCommentTextarea" rows="3" placeholder="Join the discussion" name="content"></textarea>
+          <textarea class="form-control" id="addCommentTextarea" rows="3" placeholder="Join the discussion" name="content" required></textarea>
+          <div class="invalid-feedback">
+            Please add your comment
+          </div>
         </div>
         <div class="d-flex justify-content-end">
-          <button type="" id="submitBtn_${ parentId }" class="btn btn-primary" data-link>Post Comment</button>
+          <button type="submit" class="btn btn-primary" data-link>Post Comment</button>
         </div>
       </form>`
   }
@@ -156,9 +162,17 @@ export default class PostComments extends HTMLElement {
 
   showCommentReplyForm(replyId) {
     this.shadow.querySelector(`#reply_${ replyId }`).innerHTML = this.formHtml(replyId);
-    this.shadow.querySelector(`#submitBtn_${ replyId }`).addEventListener("click", e => {
+    
+    let form = this.shadow.querySelector(`#addCommentForm_${ replyId }.needs-validation`);
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      this.onCommentSubmit(replyId);
+      if (!form.checkValidity()) {
+        e.stopPropagation();
+        form.classList.add('was-validated');
+      }
+      else {
+        this.onCommentSubmit(replyId);
+      }
     });
   }
 
@@ -200,9 +214,16 @@ export default class PostComments extends HTMLElement {
       ${ commentsHtml }
     `;
 
-    this.shadow.querySelector('#submitBtn_null').addEventListener("click", e => {
+    let form = this.shadow.querySelector('.needs-validation');
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      this.onCommentSubmit(null);
+      if (!form.checkValidity()) {
+        e.stopPropagation();
+        form.classList.add('was-validated');
+      }
+      else {
+        this.onCommentSubmit(null);
+      }
     });
 
     let replyElements = this.shadow.querySelectorAll(".replyText");
