@@ -1,6 +1,7 @@
 import AbstractView from "./AbstractView.js";
 import BlogCard from "../components/BlogCard.js";
 import { API_BASE_URL } from "../index.js"
+import FormatDate from "../functions/FormatDate.js"
 
 export default class extends AbstractView {
   constructor(params) {
@@ -39,12 +40,15 @@ export default class extends AbstractView {
       return new Date(b.publish_date) - new Date(a.publish_date);
     });
 
+    const dateLocale = 'en-GB';
+    const dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
+
     posts.forEach(post => {
       html += `
         <div class="col">
           <blog-card id="${ post.id }" class="h-100">
             <div slot="title">${ post.title }</div>
-            <div slot="date">${ post.publish_date }</div>
+            <div slot="date">${ FormatDate(post.publish_date, dateLocale, dateOptions) }</div>
             <div slot="description">${ post.description }</div>
             <a href="posts/${ post.slug }" slot="link" class="btn btn-primary">Read more</a>
           </blog-card>
