@@ -128,13 +128,26 @@ export default class PostComments extends HTMLElement {
     let dd = today.getDate();
     let mm = today.getMonth() + 1; 
     const yyyy = today.getFullYear();
+    let HH = today.getHours();
+    let MM = today.getMinutes();
+    let SS = today.getSeconds();
+
     if (dd < 10) {
       dd = `0${dd}`;
     } 
     if (mm < 10) {
       mm = `0${mm}`;
     }
-    data.date = `${yyyy}-${mm}-${dd}`;
+    if (HH < 10) {
+      HH = `0${HH}`;
+    }
+    if (MM < 10) {
+      MM = `0${MM}`;
+    }
+    if (SS < 10) {
+      SS = `0${SS}`;
+    }
+    data.date = `${yyyy}-${mm}-${dd} ${HH}:${MM}:${SS}`;
     
     this.postComment(this.postID, data).then(response => {
       this.render();
