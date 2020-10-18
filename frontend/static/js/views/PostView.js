@@ -1,6 +1,7 @@
 import AbstractView from "./AbstractView.js";
 import PostComments from "../components/PostComments.js";
 import { API_BASE_URL } from "../index.js"
+import FormatDate from "../functions/FormatDate.js"
 
 export default class PostView extends AbstractView {
   constructor(params) {
@@ -21,10 +22,7 @@ export default class PostView extends AbstractView {
   async getHtml() {
     const post = await this.getPost(this.params.id);    
     const authorSlug = post.author.replace(/\s/g, '-');
-
-    const date = new Date(post.publish_date);
-    const dateOptions = { weekday: undefined, year: 'numeric', month: 'long', day: 'numeric' };
-    const dateString = date.toLocaleDateString(undefined, dateOptions);
+    const dateString = FormatDate(post.publish_date);
     
     return `
       <div class="postBackground">
