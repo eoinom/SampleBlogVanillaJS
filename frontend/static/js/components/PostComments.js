@@ -78,7 +78,7 @@ export default class PostComments extends HTMLElement {
       html += `
       <div class="comments row row-cols-auto mb-4" style="align-items:center">
         <div class="col">
-          <img src="${AvatarSrc(comment.user)}" style="border-radius:50%">
+          <img src="${ AvatarSrc(comment.user) }" class="avatar">
         </div>
         <div class="col-10">
           <span class="comments__author">
@@ -97,7 +97,7 @@ export default class PostComments extends HTMLElement {
         html += `
         <div class="comments row row-cols-auto ml-5 mb-4" style="align-items:center">
           <div class="col">
-            <img src="${AvatarSrc(reply.user)}" style="border-radius:50%">
+            <img src="${ AvatarSrc(reply.user) }" class="avatar">
           </div>
           <div class="col-10">
             <span class="comments__author">
@@ -206,7 +206,7 @@ export default class PostComments extends HTMLElement {
       <link href="../static/css/main.css" rel="stylesheet">
       
       <br>
-      <div class="comments__count mb-2">${ numCommentsText }</div>
+      <div class="comments comments__count mb-2">${ numCommentsText }</div>
 
       ${ this.formHtml(null) }
 

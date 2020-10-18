@@ -35,7 +35,7 @@ export default class PostView extends AbstractView {
 
             <div class="row row-cols-auto mb-2" style="align-items:center">
               <div class="col py-2">
-                <img src="${AvatarSrc(post.author)}" style="border-radius:50%" class="mr-1">
+                <img src="${ AvatarSrc(post.author) }" class="avatar mr-1">
                 <span>By ${ post.author }</span>
               </div>
 

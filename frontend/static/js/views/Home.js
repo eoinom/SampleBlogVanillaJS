@@ -50,7 +50,7 @@ export default class extends AbstractView {
           <blog-card id="${ post.id }">
             <div slot="title">${ post.title }</div>
             <div slot="author">
-              <img src="${AvatarSrc(post.author)}" style="border-radius:50%" class="mr-1">
+              <img src="${ AvatarSrc(post.author) }" class="avatar mr-1">
               By ${ post.author }
             </div>
             <div slot="date">${ FormatDate(post.publish_date, dateLocale, dateOptions) }</div>
