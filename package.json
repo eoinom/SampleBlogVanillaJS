@@ -1,17 +1,25 @@
 {
   "name": "sample-blog-SPA-JS-only",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sample blog SPA written in HTML, SCSS & Javascript with Bootstrap 5 alpha.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "blog",
+    "SPA",
+    "vanilla JS",
+    "heroku"
+  ],
+  "author": "Eoin O'Malley",
+  "license": "MIT",
   "dependencies": {
     "bootstrap": "^5.0.0-alpha2",
     "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
