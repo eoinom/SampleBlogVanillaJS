@@ -76,17 +76,17 @@ export default class PostComments extends HTMLElement {
     let html = '';
     comments.forEach(comment => {
       html += `
-      <div class="row row-cols-auto mb-4" style="align-items:center">
+      <div class="comments row row-cols-auto mb-4" style="align-items:center">
         <div class="col">
           <img src="${AvatarSrc(comment.user)}" style="border-radius:50%">
         </div>
         <div class="col-10">
-          <span class="comment__author">
+          <span class="comments__author">
             ${ comment.user }
-            <span class="comment__date">${ ElapsedDateText(new Date(comment.date)) }</span>
+            <span class="comments__date">${ ElapsedDateText(new Date(comment.date)) }</span>
           </span>          
-          <span class="comment__text">${ comment.content }</span>
-          <div class="replyText" id="comment_${ comment.id }">Reply</div>
+          <span class="comments__text">${ comment.content }</span>
+          <div class="comments__replyText" id="comment_${ comment.id }">Reply</div>
         </div>
       </div>
       <div class="row ml-0 ml-sm-5 pl-md-3">
@@ -95,17 +95,17 @@ export default class PostComments extends HTMLElement {
 
       comment.replies.forEach(reply => {
         html += `
-        <div class="row row-cols-auto ml-5 mb-4" style="align-items:center">
+        <div class="comments row row-cols-auto ml-5 mb-4" style="align-items:center">
           <div class="col">
             <img src="${AvatarSrc(reply.user)}" style="border-radius:50%">
           </div>
           <div class="col-10">
-            <span class="comment__author">
+            <span class="comments__author">
               ${ reply.user }
-              <span class="comment__date">${ ElapsedDateText(new Date(reply.date)) }</span>
+              <span class="comments__date">${ ElapsedDateText(new Date(reply.date)) }</span>
             </span>
-            <span class="comment__text">@${ reply.parent_user }: ${ reply.content }</span>
-            <div class="replyText" id="comment_${ reply.id }">Reply</div>            
+            <span class="comments__text">@${ reply.parent_user }: ${ reply.content }</span>
+            <div class="comments__replyText" id="comment_${ reply.id }">Reply</div>            
           </div>
         </div>
         <div class="row ml-5 pl-md-5">
@@ -204,7 +204,6 @@ export default class PostComments extends HTMLElement {
 
     this.shadow.innerHTML = `
       <link href="../static/css/main.css" rel="stylesheet">
-      <link href="../static/css/index.css" rel="stylesheet">
       
       <br>
       <div class="comments__count mb-2">${ numCommentsText }</div>
@@ -226,7 +225,7 @@ export default class PostComments extends HTMLElement {
       }
     });
 
-    let replyElements = this.shadow.querySelectorAll(".replyText");
+    let replyElements = this.shadow.querySelectorAll(".comments__replyText");
     for (let i = 0; i < replyElements.length; i++) {
       replyElements[i].addEventListener("click", e => {
         let replyId = parseInt(e.target.id.substring(8));

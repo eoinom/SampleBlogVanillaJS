@@ -8,21 +8,18 @@ $card-height: 100%; // https://v5.getbootstrap.com/docs/5.0/components/card/
   background-size: cover;
   overflow: auto;
 }
-.postBackground {
-  height: 100vh;
-  background-image: url(../images/blue-landscape.jpg);
-  background-size: cover;
-  overflow: auto;
-}
 .homeContainer {
   margin: 1rem 0;
   padding: 1rem;
   border-radius: 12px;
   background-color: #ddd;
 }
-#logo {
-  max-width: 40%;
-  min-width: 200px;
+
+.postBackground {
+  height: 100vh;
+  background-image: url(../images/blue-landscape.jpg);
+  background-size: cover;
+  overflow: auto;
 }
 .postContainer {
   margin-top: 1rem;
@@ -30,12 +27,55 @@ $card-height: 100%; // https://v5.getbootstrap.com/docs/5.0/components/card/
   border-radius: 12px;
   background-color: lightcyan;
 }
-.replyText {
-  color: crimson;
-  cursor: pointer;
-  text-transform: uppercase;  
+
+body {
+  font-weight: 500;
+}
+
+#logo {
+  max-width: 40%;
+  min-width: 200px;
 }
 
 .card {
   max-width: fit-content;
+}
+
+.comments {
+  font-size: 1rem;
+  color: #333;
+
+  &__count {
+    font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  &__author {
+    line-height: 1.6em;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 3px;
+    display: block;
+  }
+  &__date {
+    line-height: 1.6em;
+    margin: 0 0 0 4px;
+    padding: 0;
+    font-weight: 400;
+    font-size: 0.75rem;
+  }
+  &__text {
+    line-height: 1.6em;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    vertical-align: baseline;
+  }
+  &__replyText {
+    color: crimson;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
 }
