@@ -8,8 +8,13 @@ The application can be started by `npm run serve` and will run on http://localho
 Screenshots:
 
 ![HomePg - wide](/screenshots/HomePg-wide.jpg)
+
 ![HomePg - iPad](/screenshots/HomePg-iPad.jpg)
+
 ![HomePg - iPhone](/screenshots/HomePg-phone.jpg)
+
 ![BlogPost - wide](/screenshots/BlogPost-wide.jpg)
+
 ![BlogPost - iPad](/screenshots/BlogPost-iPad.jpg)
+
 ![BlogPost - iPhone](/screenshots/BlogPost-phone.jpg)
