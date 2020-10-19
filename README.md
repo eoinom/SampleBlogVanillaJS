@@ -7,14 +7,14 @@ The application can be started by `npm run serve` and will run on http://localho
 
 Screenshots:
 
-![HomePg - wide](/screenshots/HomePg-wide.jpg)
+![HomePg - wide](/screenshots/HomePg-wide.JPG)
 
-![HomePg - iPad](/screenshots/HomePg-iPad.jpg)
+![HomePg - iPad](/screenshots/HomePg-iPad.JPG)
 
-![HomePg - iPhone](/screenshots/HomePg-phone.jpg)
+![HomePg - iPhone](/screenshots/HomePg-phone.JPG)
 
-![BlogPost - wide](/screenshots/BlogPost-wide.jpg)
+![BlogPost - wide](/screenshots/BlogPost-wide.JPG)
 
-![BlogPost - iPad](/screenshots/BlogPost-iPad.jpg)
+![BlogPost - iPad](/screenshots/BlogPost-iPad.JPG)
 
-![BlogPost - iPhone](/screenshots/BlogPost-phone.jpg)
+![BlogPost - iPhone](/screenshots/BlogPost-phone.JPG)
